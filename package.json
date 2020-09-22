@@ -1,0 +1,23 @@
+{
+  "name": "expensetracker",
+  "version": "1.0.0",
+  "description": "allows users to view, record, and delete expenses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MitchellDouma/ExpenseTracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MitchellDouma/ExpenseTracker/issues"
+  },
+  "homepage": "https://github.com/MitchellDouma/ExpenseTracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
