@@ -1,0 +1,57 @@
+label.error {
+    color: #F00;
+    font-weight: bold;
+}
+
+input.error,
+select.error,
+textarea.error {
+    border: 1px red solid;
+}
+
+body {
+
+    background-color: #005599;
+    padding: 2em;
+}
+
+.form {
+    margin: 2em;
+    font-weight: bold;
+}
+
+#btnDelete {
+    float: right;
+}
+
+label, input, select {
+    display: block;
+    padding: 1em;   
+}
+
+label {
+    margin-bottom: 10px;  
+    font-weight: bold; 
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+
+.display {
+    height: 100px;
+    width: 100px;
+    margin: 10px auto;
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Menlo, monospace;
+    font-size: 4em;
+    line-height: 100px;
+    text-align: center;
+}

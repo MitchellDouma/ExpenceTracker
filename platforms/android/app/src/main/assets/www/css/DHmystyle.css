@@ -1,0 +1,28 @@
+label.error {
+    color: #F00;
+    font-weight: bold;
+}
+
+input.error,
+select.error,
+textarea.error {
+    border: 1px red solid;
+}
+body{
+
+    padding: 2em;
+}
+
+
+.display {
+    height: 100px;
+    width: 100px;
+    margin: 10px auto;
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Menlo, monospace;
+    font-size: 4em;
+    line-height: 100px;
+    text-align: center;
+}

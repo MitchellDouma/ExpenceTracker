@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>GM Helper 5E</title>
+
+    <!--jquery-->
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <!--jquery mobile-->
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jquery validation-->
+    <script src="js/lib/jquery.validate.js"></script>
+
+    <!-- A2 -->
+    <script src="js/DHdatabase.js"></script>
+    <script src="js/DUSC.js"></script>
+    <script src="js/DHglobal.js"></script>
+    <script src="js/DHutil.js"></script>
+    <script src="js/DHfacade.js"></script>
+    <script src="js/DiceRoller.js"></script>
+
+    <!--jquery mobile stylesheet-->
+    <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+    <!--jquery mystyle -->
+    <link rel="stylesheet" type="text/css" href="css/DHmystyle.css">
+
+</head>
+
+<body>
+<!-- HomePage----------------------------------------------------------------------------------------------------------- -->
+<div id="Home" data-role="page">
+    <!-- header and navbar-->
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>DH Feedback A3</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#Home" data-theme="a" data-icon="home"
+                       class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#DHAddFeedbackPage" data-theme="a" data-icon="plus">Add NPC</a></li>
+                <li><a href="#DHViewFeedbackPage" data-theme="a" data-icon="grid">NPC List</a></li>
+                <li><a href="#Dice" data-theme="a" data-icon="gear">Dice Roller</a></li>
+            </ul>
+        </div>
+    </header>
+    <h1 align="center">GM Helper 5E</h1>
+
+    <div style="display: flex; justify-content: center;">
+        <img src="img/DnDIcon.png" height="300" width="300" align="center"/>
+    </div>
+    <p>This app is intended to help Game Masters (GM's)</p>
+
+
+    <!-- contact button links -->
+     <a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left">Call: 226-338-2611</a>
+    <a href="#http://dnd.wizards.com">
+        <button class="ui-btn ui-btn-b">Offcial Wizards of the Cost page</button>
+    </a>
+
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy; 2019 Dale Heinbecker</h1>
+    </footer>
+</div>
+
+<!--add NPC page ------------------------------------------------------------------------------------------------------- -->
+<div id="DHAddFeedbackPage" data-role="page">
+
+    <!-- header and navbar-->
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Add a Feedback</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#Home" data-theme="a" data-icon="home">Home</a></li>
+
+                <li><a href="#DHAddFeedbackPage" data-theme="a" data-icon="plus" class="ui-btn-active ui-state-persist">Add NPC</a>
+                </li>
+
+                <li><a href="#DHViewFeedbackPage" data-theme="a" data-icon="grid">NPC List</a></li>
+
+                <li><a href="#Dice" data-theme="a" data-icon="gear">Dice Roller</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- add an NPC form---------------------------------------------------------------------------------------------- -->
+
+
+    <h1 align="center">Create NPC page</h1>
+    <form id="DHAddForm">
+
+        <label for="AddFullName">Full name:</label>
+        <input type="text" id="AddFullName" name="AddFullName" placeholder="fullName">
+
+        <!-- dropdown for races -->
+        <div class="ui-field-contain">
+            <label for="AddRace">Race:</label>
+            <select id="AddRace" name="AddRace">
+
+            </select>
+        </div>
+
+
+        <!-- Gender radio select -->
+
+            
+        <div class="ui-field-contain">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+
+        <label for="AddClass">Class:</label>
+        <input type="text" id="AddClass" name="AddClass" placeholder="Eg: Fighter">
+
+        <label for="stats">Stats:</label>
+        <ul id="stats">
+            <label for="hitPoints">Hit points:</label>
+            <input type="number" id="hitPoints" name="hitPoints">
+            <label for="str">Strength:</label>
+            <input type="number" name="str" id="str">
+            <label for="dex">Dexterity:</label>
+            <input type="number" name="dex" id="dex">
+            <label for="con">Constitution:</label>
+            <input type="number" name="con" id="con">
+            <label for="int">intelligence:</label>
+            <input type="number" name="int" id="int">
+            <label for="wis">Wisdom:</label>
+            <input type="number" name="wis" id="wis">
+            <label for="cha">Charisma:</label>
+            <input type="number" name="cha" id="cha">
+        </ul>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" placeholder="A tall man with dark hair...ect" value=""></textarea>
+
+        <input type="submit" data-inline="true" id="saveNpc" value="Save">
+
+    </form>
+
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy; 2019 Dale Heinbecker</h1>
+    </footer>
+</div>
+
+<!--reviewPage---------------------------------------------------------------------------------------------------------- -->
+<div id="DHViewFeedbackPage" data-role="page">
+    <!-- header and navbar-->
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>List of Reviews</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#Home" data-theme="a" data-icon="home">Home</a></li>
+                <li><a href="#DHAddFeedbackPage" data-theme="a" data-icon="plus">Add NPC</a></li>
+                <li><a href="#DHViewFeedbackPage" data-theme="a" data-icon="grid"
+                       class="ui-btn-active ui-state-persist">NPC List</a></li>
+                <li><a href="#Dice" data-theme="a" data-icon="gear">Dice Roller</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--review display ------------------------------------------------------------------------------------------------- -->
+    <ul id="NPClist" data-role="listview" class="ui-listview-inset">
+
+
+    </ul>
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy; 2019 Dale Heinbecker</h1>
+    </footer>
+</div>
+
+<!--edit NPC page ------------------------------------------------------------------------------------------------------ -->
+<div id="DHEditFeedbackPage" data-role="page">
+    <!-- header and navbar-->
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>List of Reviews</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#Home" data-theme="a" data-icon="home">Home</a></li>
+                <li><a href="#DHAddFeedbackPage" data-theme="a" data-icon="plus">Add NPC</a></li>
+                <li><a href="#DHViewFeedbackPage" data-theme="a" data-icon="grid"
+                       class="ui-btn-active ui-state-persist">NPC List</a>
+                </li>
+                <li><a href="#Dice" data-theme="a" data-icon="gear">Dice Roller</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--edit your review form------------------------------------------------------------------------------------------- -->
+    <form id="EditNpcPage" name="EditNpcPage">
+
+        <label for="EFullName">Full name:</label>
+        <input type="text" id="EFullName" name="EFullName" placeholder="fullName">
+
+        <!-- dropdown for races -->
+        <div class="ui-field-contain">
+            <label for="ERace">Race:</label>
+            <select id="ERace" name="ERace">
+
+            </select>
+        </div>
+
+
+        <!-- Gender radio select -->
+
+            
+        <div class="ui-field-contain">
+            <label for="Egender">Gender:</label>
+            <select id="Egender" name="Egender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+
+        <label for="EClass">Class:</label>
+        <input type="text" id="EClass" name="EClass" placeholder="Eg: Fighter">
+
+        <label for="Estats">Stats:</label>
+        <ul id="Estats">
+            <label for="EhitPoints">Hit points:</label>
+            <input type="number" id="EhitPoints" name="EhitPoints">
+            <label for="Estr">Strength:</label>
+            <input type="number" name="Estr" id="Estr">
+            <label for="Edex">Dexterity:</label>
+            <input type="number" name="Edex" id="Edex">
+            <label for="Econ">Constitution:</label>
+            <input type="number" name="Econ" id="Econ">
+            <label for="Eint">intelligence:</label>
+            <input type="number" name="Eint" id="Eint">
+            <label for="Ewis">Wisdom:</label>
+            <input type="number" name="Ewis" id="Ewis">
+            <label for="Echa">Charisma:</label>
+            <input type="number" name="Echa" id="Echa">
+        </ul>
+
+        <label for="Edescription">Description:</label>
+        <textarea name="Edescription" id="Edescription" placeholder="A tall man with dark hair...ect"
+                  value=""></textarea>
+
+
+        <button id="deleteBtn" name="deleteBtn" class="ui-btn ui-btn-inline">Delete</button>
+        <button id="updateBtn" class="ui-btn ui-btn-inline">Update</button>
+    </form>
+
+    <button id="cancelBtn" class="ui-btn ui-btn-inline">Cancel</button>
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy; 2019 Dale Heinbecker</h1>
+    </footer>
+</div>
+
+<!--settingsPage-------------------------------------------------------------------------------------------------------- -->
+<div id="Dice" data-role="page">
+    <!-- header and navbar-->
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Settings</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#Home" data-theme="a" data-icon="home">Home</a></li>
+                <li><a href="#DHAddFeedbackPage" data-theme="a" data-icon="plus">Add NPC</a></li>
+                <li><a href="#DHViewFeedbackPage" data-theme="a" data-icon="grid">NPC List</a></li>
+                <li><a href="#Dice" data-theme="a" data-icon="gear" class="ui-btn-active ui-state-persist">Dice Roller</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!--text input with buttons -->
+
+    <input id="rollAmount" name="rollAmount" type="number">
+    <button id="d4">D4</button>
+    <button id="d6">D6</button>
+    <button id="d8">D8</button>
+    <button id="d10">D10</button>
+    <button id="d12">D12</button>
+    <button id="d20">D20</button>
+    <button id="d100">D100</button>
+
+    <h3 class="display"  id="showResult"></h3>
+
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy; 2019 Dale Heinbecker</h1>
+    </footer>
+</div>
+</body>
+</html>
